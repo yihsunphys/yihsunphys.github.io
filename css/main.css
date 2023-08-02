@@ -1,5 +1,5 @@
 :root {
-  --body-bg-color: #f5f7f9;
+  --body-bg-color: #feecd4;
   --content-bg-color: #fff;
   --card-bg-color: #f5f5f5;
   --text-color: #555;
@@ -967,7 +967,7 @@ pre .javascript .function {
   }
 }
 .header {
-  background: transparent;
+  background: #262a30;
 }
 .header-inner {
   margin: 0 auto;
@@ -987,9 +987,10 @@ pre .javascript .function {
   display: flex;
   flex-shrink: 0;
   padding: 0 10px;
+  background: #262a30;
 }
 .headband {
-  background: #222;
+  background: #ffc0cb;
   height: 3px;
 }
 .site-meta {
@@ -1200,10 +1201,13 @@ pre .javascript .function {
   margin-bottom: 10px;
   margin-right: 10px;
   vertical-align: middle;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #af8fff;
+  background: #691f2a;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1327,52 +1331,6 @@ pre .javascript .function {
 }
 .sidebar-toggle:hover .toggle-line {
   background: #fc6423;
-}
-.post-toc {
-  font-size: 0.875em;
-}
-.post-toc ol {
-  list-style: none;
-  margin: 0;
-  padding: 0 2px 5px 10px;
-  text-align: left;
-}
-.post-toc ol > ol {
-  padding-left: 0;
-}
-.post-toc ol a {
-  transition-property: all;
-  transition-delay: 0s;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in-out;
-}
-.post-toc .nav-item {
-  line-height: 1.8;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.post-toc .nav .nav-child {
-  display: none;
-}
-.post-toc .nav .active > .nav-child {
-  display: block;
-}
-.post-toc .nav .active-current > .nav-child {
-  display: block;
-}
-.post-toc .nav .active-current > .nav-child > .nav-item {
-  display: block;
-}
-.post-toc .nav .active > a {
-  border-bottom-color: #fc6423;
-  color: #fc6423;
-}
-.post-toc .nav .active-current > a {
-  color: #fc6423;
-}
-.post-toc .nav .active-current > a:hover {
-  color: #fc6423;
 }
 .site-state {
   display: flex;
@@ -2264,7 +2222,7 @@ ul.breadcrumb li + li:last-child {
   }
 }
 .site-brand-container {
-  background: #222;
+  background: #ffc0cb;
 }
 @media (max-width: 991px) {
   .site-brand-container {
