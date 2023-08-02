@@ -29,19 +29,19 @@
   gtag('config', 'G-F3Z71HXZ5M');
 </script>
 
-  <meta name="description" content="我的整隻手臂都非常痠痛，因為昨天搬了兩張桌子的關係我其實有點想回家，但是回家一次車票就要1000塊，我想到就有點心痛QQ，所以就繼續留在新竹，自己一個人辛酸的打code，下禮拜考完期中考再回家一次好了">
+  <meta name="description" content="這篇筆記將紀錄我手刻c++中stack和queue的程式碼，要先有物件導向的概念和了解template的用法，可能會比較看得懂程式碼">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2023-07-31 日記">
-<meta property="og:url" content="http://yihsunphys.github.io/2023/07/31/2023-07-31%E6%97%A5%E8%A8%98/">
+<meta property="og:title" content="手刻stack&amp;queue">
+<meta property="og:url" content="http://yihsunphys.github.io/2023/08/03/stack/">
 <meta property="og:site_name" content="消極女子的部落格">
-<meta property="og:description" content="我的整隻手臂都非常痠痛，因為昨天搬了兩張桌子的關係我其實有點想回家，但是回家一次車票就要1000塊，我想到就有點心痛QQ，所以就繼續留在新竹，自己一個人辛酸的打code，下禮拜考完期中考再回家一次好了">
+<meta property="og:description" content="這篇筆記將紀錄我手刻c++中stack和queue的程式碼，要先有物件導向的概念和了解template的用法，可能會比較看得懂程式碼">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-07-31T10:59:35.000Z">
-<meta property="article:modified_time" content="2023-08-01T11:13:34.693Z">
+<meta property="article:published_time" content="2023-08-02T16:07:53.000Z">
+<meta property="article:modified_time" content="2023-08-02T16:19:55.390Z">
 <meta property="article:author" content="Yihsun">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yihsunphys.github.io/2023/07/31/2023-07-31%E6%97%A5%E8%A8%98/">
+<link rel="canonical" href="http://yihsunphys.github.io/2023/08/03/stack/">
 
 
 <script id="page-configurations">
@@ -54,7 +54,7 @@
   };
 </script>
 
-  <title>2023-07-31 日記 | 消極女子的部落格</title>
+  <title>手刻stack&queue | 消極女子的部落格</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F3Z71HXZ5M"></script>
     <script>
@@ -183,7 +183,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yihsunphys.github.io/2023/07/31/2023-07-31%E6%97%A5%E8%A8%98/">
+    <link itemprop="mainEntityOfPage" href="http://yihsunphys.github.io/2023/08/03/stack/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/3.jpg">
@@ -196,7 +196,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          2023-07-31 日記
+          手刻stack&queue
         </h1>
 
         <div class="post-meta">
@@ -205,23 +205,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2023-07-31 18:59:35" itemprop="dateCreated datePublished" datetime="2023-07-31T18:59:35+08:00">2023-07-31</time>
+              <time title="Created: 2023-08-03 00:07:53 / Modified: 00:19:55" itemprop="dateCreated datePublished" datetime="2023-08-03T00:07:53+08:00">2023-08-03</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-08-01 19:13:34" itemprop="dateModified" datetime="2023-08-01T19:13:34+08:00">2023-08-01</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%97%A5%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">日記</span></a>
+                  <a href="/categories/cs-note/" itemprop="url" rel="index"><span itemprop="name">cs note</span></a>
                 </span>
             </span>
 
@@ -243,7 +237,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>我的整隻手臂都非常痠痛，因為昨天搬了兩張桌子的關係<br>我其實有點想回家，但是回家一次車票就要1000塊，我想到就有點心痛QQ，所以就繼續留在新竹，自己一個人辛酸的打code，下禮拜考完期中考再回家一次好了</p>
+        <p>這篇筆記將紀錄我手刻c++中stack和queue的程式碼，要先有物件導向的概念和了解template的用法，可能會比較看得懂程式碼<span id="more"></span></p>
+<h2 id="stack"><a href="#stack" class="headerlink" title="stack"></a>stack</h2><p>先進後出(LIFO)，就像把一個一個的元素放進罐子，最先被拿出的會是最頂端的元素，常用的函數有top(), push(), pop(), empty()</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">/*-------------------------------------------*/</span><br><span class="line">template&lt;class T&gt;</span><br><span class="line">class stack&#123;</span><br><span class="line">    public:</span><br><span class="line">      stack(int stackcapacity=10);</span><br><span class="line">      bool empty() const;</span><br><span class="line">      T top() const;</span><br><span class="line">      void push(const T x);</span><br><span class="line">      void pop();</span><br><span class="line">    private:</span><br><span class="line">      T *stk; //一個指標類型的陣列</span><br><span class="line">      int tp;</span><br><span class="line">      int capacity;</span><br><span class="line">&#125;;</span><br><span class="line">/*-------------------------------------------*/</span><br><span class="line">/*</span><br><span class="line">1.inline會直接把函式展開</span><br><span class="line">2.const代表不要去修改任何內容</span><br><span class="line">3.有用到樣板的地方都要宣告一次</span><br><span class="line">*/</span><br><span class="line">//建構函數 constructor</span><br><span class="line">template&lt;class T&gt;</span><br><span class="line">stack&lt;T&gt;::stack(int stackcapacity): capacity(stackcapacity)&#123;</span><br><span class="line">  //冒號代表順便給成員變量賦值 </span><br><span class="line">    stk=new T[capacity];</span><br><span class="line">    tp=-1;</span><br><span class="line">&#125;</span><br><span class="line">//bool函數 </span><br><span class="line">template&lt;class T&gt; </span><br><span class="line">inline bool stack&lt;T&gt;::empty() const&#123;</span><br><span class="line">    return tp==-1;   //代表top==-1時回傳true</span><br><span class="line">&#125;</span><br><span class="line">//Top函數</span><br><span class="line">template&lt;class T&gt;</span><br><span class="line">inline T stack&lt;T&gt;::top() const&#123;</span><br><span class="line">    return stk[tp];</span><br><span class="line">&#125;</span><br><span class="line">//push函數</span><br><span class="line">template&lt;class T&gt;</span><br><span class="line">void stack&lt;T&gt;::push(const T x)&#123;</span><br><span class="line">    stk[++tp]=x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">template&lt;class T&gt;</span><br><span class="line">void stack&lt;T&gt;::pop()&#123;</span><br><span class="line">    stk[tp--].~T();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    stack&lt;int&gt; stk;</span><br><span class="line">    stk.push(1);</span><br><span class="line">    stk.push(2);;</span><br><span class="line">    cout&lt;&lt;stk.top();</span><br><span class="line">    stk.pop();</span><br><span class="line">    cout&lt;&lt;stk.top();</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue</h2><p>與stack不同的是，可以把queue想成兩邊都開放的罐子，推入的元素由後方進入，要pop出元素時則是從最前端開始，常用的函數有 front(), rear(), push(), pop(), empty()</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">/*----------------------------------------------*/</span><br><span class="line">template&lt;class T&gt;</span><br><span class="line">class queue&#123;</span><br><span class="line">    public:</span><br><span class="line">      queue (int queuecapacity=10);</span><br><span class="line">      bool empty() const;</span><br><span class="line">      T front() const; //前端</span><br><span class="line">      T rear() const; //後端</span><br><span class="line">      void push(const T item);</span><br><span class="line">      void pop();</span><br><span class="line">    private:</span><br><span class="line">      T *q;</span><br><span class="line">      int fr; //若a[1], a[2]有元素 則fr=0, re=2</span><br><span class="line">      int re;</span><br><span class="line">      int capacity;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">template&lt;class T&gt;</span><br><span class="line">queue&lt;T&gt;::queue(int queuecapacity):capacity(queuecapacity)&#123;</span><br><span class="line">    q=new T[capacity];</span><br><span class="line">    fr=re=capacity-1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">template&lt;class T&gt;</span><br><span class="line">inline bool queue&lt;T&gt;::empty() const&#123;</span><br><span class="line">    return fr==re;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">template &lt;class T&gt;</span><br><span class="line">inline T queue&lt;T&gt;::front() const&#123;</span><br><span class="line">    return q[(fr+1)%capacity];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">template&lt;class T&gt;</span><br><span class="line">inline T queue&lt;T&gt;::rear() const&#123;</span><br><span class="line">    return q[re];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">template&lt;class T&gt;</span><br><span class="line">void queue&lt;T&gt;::push (const T x)&#123;</span><br><span class="line">    re=(re+1)%capacity;</span><br><span class="line">    q[re]=x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">template&lt;class T&gt;</span><br><span class="line">void queue&lt;T&gt;::pop()&#123;</span><br><span class="line">    fr=(fr+1)%capacity;</span><br><span class="line">    q[fr].~T();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    queue&lt;int&gt; q;</span><br><span class="line">    q.push(1);</span><br><span class="line">    q.push(2);</span><br><span class="line">    cout&lt;&lt;q.front()&lt;&lt;q.rear();</span><br><span class="line">    q.pop();</span><br><span class="line">    cout&lt;&lt;q.front()&lt;&lt;q.rear();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -258,10 +256,13 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2023/07/31/2023%E5%8F%B0%E7%81%A3%E5%8F%A3%E7%90%B4%E9%9F%B3%E6%A8%82%E7%AF%80/" rel="next" title="2023台灣口琴音樂節">
-      2023台灣口琴音樂節 <i class="fa fa-chevron-right"></i>
+    <a href="/2023/08/01/2023-08-01%E6%97%A5%E8%A8%98/" rel="prev" title="2023-08-01 日記">
+      <i class="fa fa-chevron-left"></i> 2023-08-01 日記
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/08/03/%E5%BF%AB%E9%80%9F%E5%86%AA/" rel="next" title="快速冪">
+      快速冪 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
