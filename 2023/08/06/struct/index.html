@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yihsunphys.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F3Z71HXZ5M"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-F3Z71HXZ5M');
+</script>
+
+  <meta name="description" content="struct當我們有多個不同類型的資料想要把他們綁在一起時，我們就可以使用struct這種資料型態，與c++中的class基本上是一樣的，只不過struct內不能有函數，且struct默認成員為public 範例我們想要把每個學生的姓名，班級和座號綁在一起，因此我們可以宣告一個名為student的struct">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C語言中的複合資料型態">
+<meta property="og:url" content="http://yihsunphys.github.io/2023/08/06/struct/">
+<meta property="og:site_name" content="消極女子的部落格">
+<meta property="og:description" content="struct當我們有多個不同類型的資料想要把他們綁在一起時，我們就可以使用struct這種資料型態，與c++中的class基本上是一樣的，只不過struct內不能有函數，且struct默認成員為public 範例我們想要把每個學生的姓名，班級和座號綁在一起，因此我們可以宣告一個名為student的struct">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-08-05T16:53:05.000Z">
+<meta property="article:modified_time" content="2023-08-05T17:04:42.000Z">
+<meta property="article:author" content="Yihsun">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yihsunphys.github.io/2023/08/06/struct/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>C語言中的複合資料型態 | 消極女子的部落格</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F3Z71HXZ5M"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-F3Z71HXZ5M');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><link rel="alternate" href="/atom.xml" title="消極女子的部落格" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">消極女子的部落格</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">好累</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yihsunphys.github.io/2023/08/06/struct/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/3.jpg">
+      <meta itemprop="name" content="Yihsun">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="消極女子的部落格">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          C語言中的複合資料型態
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2023-08-06 00:53:05 / Modified: 01:04:42" itemprop="dateCreated datePublished" datetime="2023-08-06T00:53:05+08:00">2023-08-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/cs-note/" itemprop="url" rel="index"><span itemprop="name">cs note</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="struct"><a href="#struct" class="headerlink" title="struct"></a>struct</h1><p>當我們有多個不同類型的資料想要把他們綁在一起時，我們就可以使用struct這種資料型態，與c++中的class基本上是一樣的，只不過struct內不能有函數，且struct默認成員為public</p>
+<h3 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h3><p>我們想要把每個學生的姓名，班級和座號綁在一起，因此我們可以宣告一個名為student的struct<span id="more"></span></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">struct student&#123;</span><br><span class="line">    string name; //姓名</span><br><span class="line">    int cls;   //班級</span><br><span class="line">    int num;   //座號</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>我們可以建造一個student類型的變數，並賦予它姓名，班級和座號</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">student std1; //宣告變數std1 類型為student</span><br><span class="line">std1.name=&quot;小明&quot;;</span><br><span class="line">std1.cls=2;</span><br><span class="line">std1.num=25;</span><br></pre></td></tr></table></figure>
+<p>也可以宣告student類型的陣列</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">student array[100];</span><br><span class="line">for(int i=0;i&lt;100;i++)&#123;</span><br><span class="line">    cin&gt;&gt;a[i].name;</span><br><span class="line">    cin&gt;&gt;a[i].cls;</span><br><span class="line">    cin&gt;&gt;a[i].num</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以下是兩題可以用struct做的題目</p>
+<p><a target="_blank" rel="noopener" href="https://zerojudge.tw/ShowProblem?problemid=f277">Zerojudge f277.嘿嘿想不到吧</a></p>
+<h3 id="AC-code"><a href="#AC-code" class="headerlink" title="AC code"></a><font color=#008000>AC code</font></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">#define IOS ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);</span><br><span class="line">using namespace std;</span><br><span class="line">#define endl &#x27;\n&#x27;</span><br><span class="line">/*-------------------------------------*/</span><br><span class="line">struct student&#123;</span><br><span class="line">    string name;</span><br><span class="line">    int cls;</span><br><span class="line">    int num;</span><br><span class="line">    string s;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">bool cmp(student std1, student std2)&#123;</span><br><span class="line">    if(std1.cls==std2.cls) return std1.num&lt;std2.num;</span><br><span class="line">    else return std1.cls&lt;std2.cls;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;IOS;</span><br><span class="line">  int n;</span><br><span class="line">  cin&gt;&gt;n;</span><br><span class="line">  student a[100000];</span><br><span class="line">  for(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">      cin&gt;&gt;a[i].name&gt;&gt;a[i].cls&gt;&gt;a[i].num&gt;&gt;a[i].s;</span><br><span class="line">  &#125;</span><br><span class="line">  sort(a,a+n,cmp);</span><br><span class="line">  for(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">      cout&lt;&lt;a[i].cls&lt;&lt;&quot; &quot;&lt;&lt;a[i].num&lt;&lt;&quot; &quot;&lt;&lt;a[i].name&lt;&lt;endl;</span><br><span class="line">      cout&lt;&lt;a[i].s&lt;&lt;endl;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://nthucp.cs.nthu.edu.tw/oj/contest/17/problem/2023E2HW9">NTHUUCPOJ 點排序</a></p>
+<h3 id="AC-code-1"><a href="#AC-code-1" class="headerlink" title="AC code"></a><font color=#008000>AC code</font></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">#define IOS ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);</span><br><span class="line">using namespace std;</span><br><span class="line">#define endl &#x27;\n&#x27;</span><br><span class="line">/*-------------------------------------*/</span><br><span class="line">struct point&#123;</span><br><span class="line">    int x;</span><br><span class="line">    int y;</span><br><span class="line">    int d;</span><br><span class="line">&#125;;</span><br><span class="line">bool cmp(point p1,point p2)&#123;</span><br><span class="line">    if(p1.d==p2.d) &#123;</span><br><span class="line">      if(p1.x==p2.x) return p1.y&lt;p2.y;</span><br><span class="line">      else return p1.x&lt;p2.x;</span><br><span class="line">    &#125;</span><br><span class="line">    else return p1.d&lt;p2.d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">point a[100000];</span><br><span class="line">int main()&#123;IOS;</span><br><span class="line">    int n;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    for(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">        cin&gt;&gt;a[i].x&gt;&gt;a[i].y;</span><br><span class="line">        a[i].d=pow(a[i].x,2)+pow(a[i].y,2);</span><br><span class="line">    &#125;</span><br><span class="line">    sort(a,a+n,cmp);</span><br><span class="line">    for(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">        cout&lt;&lt;a[i].x&lt;&lt;&quot; &quot;&lt;&lt;a[i].y&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="union"><a href="#union" class="headerlink" title="union"></a>union</h1><p>與struct類似，不過一次只能存取union的一種變數類型，因為裡頭的變數都是共用同一塊記憶體</p>
+<h3 id="範例-1"><a href="#範例-1" class="headerlink" title="範例"></a>範例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">/*-------------------------------*/</span><br><span class="line">union data&#123; //以下資料只能擇一存取</span><br><span class="line">    int n;</span><br><span class="line">    int n2;</span><br><span class="line">    double d;</span><br><span class="line">    float f;</span><br><span class="line">    char c;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    data x;</span><br><span class="line">    x.c=&#x27;a&#x27;;</span><br><span class="line">    x.n=1; //前面宣告的x.c就沒用了</span><br><span class="line">    x.n2=2; //前面宣告的x.n也沒用</span><br><span class="line">    cout&lt;&lt;x.n&lt;&lt;x.n2; //只能印出x.n2的值</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>另外若union寫在struct裡可以不用宣告union的名稱，稱為匿名union</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">struct st&#123;</span><br><span class="line">  int n;</span><br><span class="line">  union&#123; //匿名union</span><br><span class="line">    double d;</span><br><span class="line">    char c;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="enum"><a href="#enum" class="headerlink" title="enum"></a>enum</h1><p>列舉是一組整數常數，例如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enum week&#123;Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday&#125;;</span><br></pre></td></tr></table></figure>
+<p> enum 列舉預設從 0 開始，後續的列舉項目如果後面不指定值的話預設會累加 1，以上面的例子來說印出Sunday的值為0，Monday為1…</p>
+<p> 列舉也可以匿名與指定起始整數，例如<br> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enum week&#123;Sunday, Monday, Tuesday=3, Wednesday, Thursday, Friday, Saturday&#125;;</span><br></pre></td></tr></table></figure><br>則印出Tuesday的值為3，而後面的項目會由3繼續累加，Wednesday為4，Thursday為5…</p>
+<h3 id="範例-2"><a href="#範例-2" class="headerlink" title="範例"></a>範例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">/*-------------------------------*/</span><br><span class="line">enum &#123;a=5,b&#125;;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">   cout&lt;&lt;b;</span><br><span class="line">   int n=b;</span><br><span class="line">   cout&lt;&lt;n;</span><br><span class="line">&#125;</span><br><span class="line">//輸出66</span><br></pre></td></tr></table></figure>
+<h1 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h1><p>參考就是變數的別名，在變數名稱前加上&amp;表示這是個參考變數，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int &amp;a=b //a是b的參考(別名)</span><br></pre></td></tr></table></figure>
+<p>在上述例中，a和b共用同一塊記憶體，只是有兩個不同的名稱，對其中之一座任何操作，另外一者也會受到相同的影響</p>
+<h3 id="範例-3"><a href="#範例-3" class="headerlink" title="範例"></a>範例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">/*-------------------------------*/</span><br><span class="line">int main()&#123;</span><br><span class="line">    int x;</span><br><span class="line">    int &amp;x2=x;</span><br><span class="line">    x=5;</span><br><span class="line">    x*=2;</span><br><span class="line">    cout&lt;&lt;x2;</span><br><span class="line">&#125;</span><br><span class="line">//輸出10</span><br></pre></td></tr></table></figure>
+<h1 id="指標"><a href="#指標" class="headerlink" title="指標"></a>指標</h1><p>指標是儲存記憶體位址 (address) 的資料型態(門牌)，在變數名稱前加上*代表這是個儲存指標的變數<br>而在變數前加上&amp;則代表取得此變數的記憶體位址</p>
+<h3 id="範例-4"><a href="#範例-4" class="headerlink" title="範例"></a>範例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">/*-------------------------------*/</span><br><span class="line">int main()&#123;</span><br><span class="line">    int x=5;</span><br><span class="line">    //x_ptr是個指標 </span><br><span class="line">    int *x_ptr=&amp;x; //&amp;是取址運算子</span><br><span class="line">    cout&lt;&lt;x_ptr&lt;&lt;endl; //會印出記憶體的位址</span><br><span class="line">    *x_ptr=10; //將地址為x_ptr的記憶體(即x)值改為10</span><br><span class="line">    cout&lt;&lt;x; //輸出10</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果採用指標方法存取struct或class時，存取成員方式必須使用箭頭-&gt;</p>
+<h3 id="範例-5"><a href="#範例-5" class="headerlink" title="範例"></a>範例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">struct st&#123;</span><br><span class="line">    int x;</span><br><span class="line">    char c;</span><br><span class="line">    double d;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">st *mystruct; //用指標宣告</span><br><span class="line">mystruct-&gt;x=5;</span><br><span class="line">mystruct-&gt;c=&#x27;a&#x27;;</span><br><span class="line">mystruct-&gt;d=0.01;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/08/05/backtracking/" rel="prev" title="迴溯法BackTracking">
+      <i class="fa fa-chevron-left"></i> 迴溯法BackTracking
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/08/06/string/" rel="next" title="String">
+      String <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Yihsun"
+      src="/images/3.jpg">
+  <p class="site-author-name" itemprop="name">Yihsun</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yihsunphys" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yihsunphys" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yqiu789@gmail.com" title="E-Mail → mailto:yqiu789@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"><a href='yihsunphys.github.io'>yihsunphys</a></span>
+</div>
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script color='' opacity='' zIndex='' count='' src="/lib/canvas-nest/canvas-nest-nomobile.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>
