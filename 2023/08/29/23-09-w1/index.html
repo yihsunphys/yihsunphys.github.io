@@ -29,19 +29,19 @@
   gtag('config', 'G-F3Z71HXZ5M');
 </script>
 
-  <meta name="description" content="在計算一個數的乘冪時，如果指數很大，則可以用快速冪來加速程式運算的速度，舉例來說，若要計算$2^{100}$，我們只需計算$2^{50}$， 再將$2^{50}\times 2^{50}$，就可以得出答案，而不用將2乘100次，節省大量時間 我們可以用遞迴來實現快速冪，以下是c++中快速冪函數的程式碼">
+  <meta name="description" content="08&#x2F;28: 我期末考考的不太好ㄟ 可能之前確定A+後就都不讀了 但還是不太妙 以後要上課才行 我覺得觸控筆怪怪的 有點怕">
 <meta property="og:type" content="article">
-<meta property="og:title" content="快速冪">
-<meta property="og:url" content="http://yihsunphys.github.io/2023/08/03/%E5%BF%AB%E9%80%9F%E5%86%AA/">
+<meta property="og:title" content="2023-09-week1">
+<meta property="og:url" content="http://yihsunphys.github.io/2023/08/29/23-09-w1/">
 <meta property="og:site_name" content="消極女子的部落格">
-<meta property="og:description" content="在計算一個數的乘冪時，如果指數很大，則可以用快速冪來加速程式運算的速度，舉例來說，若要計算$2^{100}$，我們只需計算$2^{50}$， 再將$2^{50}\times 2^{50}$，就可以得出答案，而不用將2乘100次，節省大量時間 我們可以用遞迴來實現快速冪，以下是c++中快速冪函數的程式碼">
+<meta property="og:description" content="08&#x2F;28: 我期末考考的不太好ㄟ 可能之前確定A+後就都不讀了 但還是不太妙 以後要上課才行 我覺得觸控筆怪怪的 有點怕">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-08-02T16:08:24.000Z">
-<meta property="article:modified_time" content="2023-08-02T16:24:36.000Z">
+<meta property="article:published_time" content="2023-08-28T17:42:37.000Z">
+<meta property="article:modified_time" content="2023-08-28T17:46:56.858Z">
 <meta property="article:author" content="Yihsun">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yihsunphys.github.io/2023/08/03/%E5%BF%AB%E9%80%9F%E5%86%AA/">
+<link rel="canonical" href="http://yihsunphys.github.io/2023/08/29/23-09-w1/">
 
 
 <script id="page-configurations">
@@ -54,7 +54,7 @@
   };
 </script>
 
-  <title>快速冪 | 消極女子的部落格</title>
+  <title>2023-09-week1 | 消極女子的部落格</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F3Z71HXZ5M"></script>
     <script>
@@ -184,7 +184,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yihsunphys.github.io/2023/08/03/%E5%BF%AB%E9%80%9F%E5%86%AA/">
+    <link itemprop="mainEntityOfPage" href="http://yihsunphys.github.io/2023/08/29/23-09-w1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/3.jpg">
@@ -197,7 +197,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          快速冪
+          2023-09-week1
         </h1>
 
         <div class="post-meta">
@@ -208,7 +208,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2023-08-03 00:08:24 / Modified: 00:24:36" itemprop="dateCreated datePublished" datetime="2023-08-03T00:08:24+08:00">2023-08-03</time>
+              <time title="Created: 2023-08-29 01:42:37 / Modified: 01:46:56" itemprop="dateCreated datePublished" datetime="2023-08-29T01:42:37+08:00">2023-08-29</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -216,7 +216,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/cs-note/" itemprop="url" rel="index"><span itemprop="name">cs note</span></a>
+                  <a href="/categories/%E6%97%A5%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">日記</span></a>
                 </span>
             </span>
 
@@ -238,15 +238,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>在計算一個數的乘冪時，如果指數很大，則可以用快速冪來加速程式運算的速度，舉例來說，若要計算$2^{100}$，我們只需計算$2^{50}$， 再將$2^{50}\times 2^{50}$，就可以得出答案，而不用將2乘100次，節省大量時間</p>
-<p>我們可以用遞迴來實現快速冪，以下是c++中快速冪函數的程式碼<span id="more"></span></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">/*---------------------------------*/</span><br><span class="line">//快速冪可快速求pow</span><br><span class="line">//用遞迴將指數減半</span><br><span class="line">int fastpow(int a, int b)&#123; //a為底數, b為指數</span><br><span class="line">    if(b==0) return 1;</span><br><span class="line">    int x= fastpow(a,b/2);</span><br><span class="line">    if(b%2==0) return x*x;</span><br><span class="line">    else return x*x*a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="矩陣快速冪"><a href="#矩陣快速冪" class="headerlink" title="矩陣快速冪"></a>矩陣快速冪</h2><p>我們將先建立一個矩陣的struct, 並利用運算子重構定義矩陣乘法，接著一樣使用快速冪就可以快速計算出矩陣的乘冪囉</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">//矩陣快速冪</span><br><span class="line"></span><br><span class="line">//先將矩陣視為一個物件 且藉由運算子重構定義矩陣乘法</span><br><span class="line">struct mat&#123;</span><br><span class="line">    ll a[2][2];</span><br><span class="line">    mat()&#123; //constructor 矩陣內元素皆設為0</span><br><span class="line">        memset(a,0,sizeof(a));</span><br><span class="line">    &#125;</span><br><span class="line">    mat(int x, int y, int z,int r)&#123; //constructor</span><br><span class="line">       a[0][0]=x,a[0][1]=y,a[1][0]=z,a[1][1]=r;</span><br><span class="line">    &#125;</span><br><span class="line">    mat operator*(mat &amp;b)&#123; //運算子重載</span><br><span class="line">        mat ans;</span><br><span class="line">        for(int i=0;i&lt;2;i++)&#123;</span><br><span class="line">            for(int j=0;j&lt;2;j++)&#123;</span><br><span class="line">                for(int k=0;k&lt;2;k++)&#123;</span><br><span class="line">                    ans.a[i][j]=(ans.a[i][j]+a[i][k]*b.a[k][j]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">mat matfastpow(mat a, int b)&#123; //a為矩陣, b為指數</span><br><span class="line">    if(b==0) return mat(1,0,0,1);</span><br><span class="line">    mat x= matfastpow(a,b/2);</span><br><span class="line">    if(b%2==0) return x*x;</span><br><span class="line">    else return x*x*a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Fibonacci-sequence"><a href="#Fibonacci-sequence" class="headerlink" title="Fibonacci sequence"></a>Fibonacci sequence</h2><p>利用矩陣快速冪我們可以用更快的速度解決著名的斐波納契數列問題，以下的程式碼輸入n，將給出斐波納契數列的第n項，因為答案可能很大，我們將答案對mod取餘數</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">#define IOS ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);</span><br><span class="line">using namespace std;</span><br><span class="line">#define ll long long</span><br><span class="line">/*-----------------------------*/</span><br><span class="line">ll mod;</span><br><span class="line">struct mat&#123;</span><br><span class="line">    ll a[2][2];</span><br><span class="line">    mat()&#123;</span><br><span class="line">        memset(a,0,sizeof(a));</span><br><span class="line">    &#125;;</span><br><span class="line">    mat(int x,int y,int z,int r)&#123;</span><br><span class="line">        a[0][0]=x;a[0][1]=y;a[1][0]=z;a[1][1]=r;</span><br><span class="line">    &#125;</span><br><span class="line">    mat operator *(mat &amp;b)&#123;</span><br><span class="line">        mat ans;</span><br><span class="line">        for(int i=0;i&lt;2;i++)&#123;</span><br><span class="line">            for(int j=0;j&lt;2;j++)&#123;</span><br><span class="line">                for(int k=0;k&lt;2;k++)&#123;</span><br><span class="line">                   ans.a[i][j]=(ans.a[i][j]+a[i][k]*b.a[k][j])%mod;     </span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">mat fastpow(mat a,ll b)&#123;</span><br><span class="line">    if(b==0) return mat(1,0,0,1);</span><br><span class="line">    mat x=fastpow(a,b/2);</span><br><span class="line">    if(b%2==0) return x*x;</span><br><span class="line">    else return x*x*a;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;IOS;</span><br><span class="line">    ll  n;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    cin&gt;&gt;mod;</span><br><span class="line">    mat fibo(0,1,1,1);</span><br><span class="line">    mat ans=fastpow(fibo, n);</span><br><span class="line">    cout&lt;&lt;ans.a[0][1];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>08&#x2F;28: 我期末考考的不太好ㄟ 可能之前確定A+後就都不讀了 但還是不太妙 以後要上課才行 我覺得觸控筆怪怪的 有點怕</p>
 
     </div>
 
@@ -262,12 +254,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/08/03/stack/" rel="prev" title="手刻stack&queue">
-      <i class="fa fa-chevron-left"></i> 手刻stack&queue
+    <a href="/2023/08/23/23-08-w4/" rel="prev" title="2023-08-week4">
+      <i class="fa fa-chevron-left"></i> 2023-08-week4
     </a></div>
       <div class="post-nav-item">
-    <a href="/2023/08/03/2023-08-02%E6%97%A5%E8%A8%98/" rel="next" title="2023-08-02日記">
-      2023-08-02日記 <i class="fa fa-chevron-right"></i>
+    <a href="/2023/08/29/stl-container/" rel="next" title="stl-container">
+      stl-container <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -466,59 +458,6 @@
   
 
   
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 

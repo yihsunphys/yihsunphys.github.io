@@ -29,28 +29,32 @@
   gtag('config', 'G-F3Z71HXZ5M');
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="消極女子的部落格">
-<meta property="og:url" content="http://yihsunphys.github.io/">
+  <meta name="description" content="Binary Search Treeset自動排序，不允許重複的元素常用的函數有insert(), erase(), count(), find()zerojudge 字典 1234567891011121314151617181920212223242526272829303132&lt;!--more--&gt;#include &lt;bits&#x2F;stdc++.h&gt;#define IOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="stl-container">
+<meta property="og:url" content="http://yihsunphys.github.io/2023/08/29/stl-container/">
 <meta property="og:site_name" content="消極女子的部落格">
+<meta property="og:description" content="Binary Search Treeset自動排序，不允許重複的元素常用的函數有insert(), erase(), count(), find()zerojudge 字典 1234567891011121314151617181920212223242526272829303132&lt;!--more--&gt;#include &lt;bits&#x2F;stdc++.h&gt;#define IOS">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-08-28T17:45:32.000Z">
+<meta property="article:modified_time" content="2023-08-28T17:46:44.731Z">
 <meta property="article:author" content="Yihsun">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yihsunphys.github.io/">
+<link rel="canonical" href="http://yihsunphys.github.io/2023/08/29/stl-container/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>消極女子的部落格</title>
+  <title>stl-container | 消極女子的部落格</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F3Z71HXZ5M"></script>
     <script>
@@ -173,9 +177,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
@@ -191,10 +196,9 @@
       <meta itemprop="name" content="消極女子的部落格">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/08/29/stl-container/" class="post-title-link" itemprop="url">stl-container</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          stl-container
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -217,6 +221,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
 
         </div>
       </header>
@@ -227,7 +238,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Binary-Search-Tree"><a href="#Binary-Search-Tree" class="headerlink" title="Binary Search Tree"></a>Binary Search Tree</h1><h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><p>自動排序，不允許重複的元素<br>常用的函數有insert(), erase(), count(), find()<br><a href="">zerojudge 字典</a></p>
+        <h1 id="Binary-Search-Tree"><a href="#Binary-Search-Tree" class="headerlink" title="Binary Search Tree"></a>Binary Search Tree</h1><h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><p>自動排序，不允許重複的元素<br>常用的函數有insert(), erase(), count(), find()<br><a href="">zerojudge 字典</a></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--more--&gt;</span><br><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">#define IOS ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">/*---------------------------*/</span><br><span class="line">int main()&#123;IOS;</span><br><span class="line">   int n;</span><br><span class="line">   cin &gt;&gt; n;</span><br><span class="line">   set &lt;string&gt; c;</span><br><span class="line">   string s;</span><br><span class="line">   while (n--) &#123;</span><br><span class="line">      cin &gt;&gt; s;</span><br><span class="line">      c.insert(s);</span><br><span class="line">   &#125;</span><br><span class="line">   int q;</span><br><span class="line">   cin &gt;&gt; q;</span><br><span class="line">   while(q--)&#123;</span><br><span class="line">      cin &gt;&gt; s;</span><br><span class="line">      if (!c.count(s)) &#123; </span><br><span class="line">         c.insert(s);</span><br><span class="line">         cout &lt;&lt; &quot;no\n&quot;;</span><br><span class="line">         &#125;</span><br><span class="line">      else cout &lt;&lt; &quot;yes\n&quot;;</span><br><span class="line">   &#125;</span><br><span class="line">   /*for(auto &amp;e:c) &#123;</span><br><span class="line">      cout &lt;&lt; e;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   auto search = c.find(&quot;leo&quot;);</span><br><span class="line">   cout &lt;&lt; *search;*/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><p>對照表</p>
@@ -246,705 +257,31 @@
 <h2 id="bitset"><a href="#bitset" class="headerlink" title="bitset"></a>bitset</h2><p>位元運算</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">/*-------------------*/</span><br><span class="line">int main() &#123;</span><br><span class="line">    bitset&lt;10&gt; b(10);</span><br><span class="line">    cout &lt;&lt; b &lt;&lt; endl;</span><br><span class="line">    string s = &quot;10101&quot;;</span><br><span class="line">    bitset&lt;10&gt; a(s);</span><br><span class="line">    cout &lt;&lt; a &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; a.size() &lt;&lt; endl;</span><br><span class="line">    //b.any(): 判別是否有1 </span><br><span class="line">    //b.none():</span><br><span class="line">    //b.count(): 1的個數</span><br><span class="line">    //b.flip(pos): 翻轉 ~b[]</span><br><span class="line">    //b.reset(): 設為0</span><br><span class="line">    //b.set(pos, 1);</span><br><span class="line">    //s = b.to_string();</span><br><span class="line">    //unsigned long x = b.to_ulong();</span><br><span class="line">    const int n = 4;</span><br><span class="line">    for(int i = 0; i&lt; (1 &lt;&lt; n); i++) &#123;</span><br><span class="line">        cout &lt;&lt; bitset&lt;n&gt;(i) &lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="附錄"><a href="#附錄" class="headerlink" title="附錄"></a>附錄</h1><h2 id="vector實作"><a href="#vector實作" class="headerlink" title="vector實作"></a>vector實作</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">struct MyVector &#123;</span><br><span class="line">  MyVector(size_t n = 0, int data = &#123;&#125;);</span><br><span class="line">  MyVector(const MyVector&amp; other);</span><br><span class="line">  size_t size() const;</span><br><span class="line">  void push_back(int data);</span><br><span class="line">  int&amp; operator[](size_t idx);</span><br><span class="line">  int* begin();</span><br><span class="line">  int* end();</span><br><span class="line"></span><br><span class="line">  size_t n;</span><br><span class="line">  int *arr;</span><br><span class="line">&#125;;</span><br><span class="line">//建構子</span><br><span class="line">MyVector::MyVector(size_t n, int data) &#123;</span><br><span class="line">    this-&gt;n = n;</span><br><span class="line">    this-&gt;arr = new int[n]&#123;&#125;;</span><br><span class="line">    for (int i = 0; i &lt; n; ++i)</span><br><span class="line">      this-&gt;arr[i] = data;</span><br><span class="line">&#125;</span><br><span class="line">//複製</span><br><span class="line">MyVector::MyVector(const MyVector&amp; other) &#123;</span><br><span class="line">    this-&gt;n = other.n;</span><br><span class="line">    this-&gt;arr = new int[n]&#123;&#125;;</span><br><span class="line">    for (int i = 0; i &lt; n; ++i)</span><br><span class="line">      this-&gt;arr[i] = other.arr[i];</span><br><span class="line">&#125;</span><br><span class="line">//size函數</span><br><span class="line">size_t MyVector::size() const &#123;</span><br><span class="line">    return this-&gt;n;</span><br><span class="line">&#125;</span><br><span class="line">//運算子重載[]</span><br><span class="line">int&amp; MyVector::operator[](size_t idx) &#123;</span><br><span class="line">return this-&gt;arr[idx];</span><br><span class="line">&#125;</span><br><span class="line">int* MyVector::begin() &#123;</span><br><span class="line">return this-&gt;arr;</span><br><span class="line">&#125;</span><br><span class="line">int* MyVector::end() &#123;</span><br><span class="line">return this-&gt;arr + this-&gt;n;</span><br><span class="line">&#125;</span><br><span class="line">//push_back函數</span><br><span class="line">void MyVector::push_back(int data) &#123;</span><br><span class="line">    //先建立長度+1的新陣列</span><br><span class="line">    int *new_arr = new int[this-&gt;n + 1]&#123;&#125;;</span><br><span class="line">    //複製原陣列</span><br><span class="line">    for(int i = 0; i &lt; this-&gt;n; ++i)</span><br><span class="line">      new_arr[i] = this-&gt;arr[i];</span><br><span class="line">    //刪除舊資料</span><br><span class="line">    delete this-&gt;arr;</span><br><span class="line">    this-&gt;arr = new_arr;</span><br><span class="line">    this-&gt;arr[n] = data;</span><br><span class="line">    n += 1;</span><br><span class="line">&#125;</span><br><span class="line">/*---------------倍增法----------------*/</span><br><span class="line">struct MyVector &#123;</span><br><span class="line">  MyVector(size_t n = 0, int data = &#123;&#125;);</span><br><span class="line">  MyVector(const MyVector&amp; other);</span><br><span class="line">  size_t size() const;</span><br><span class="line">  void push_back(int data);</span><br><span class="line">  void pop_back();</span><br><span class="line">  int&amp; operator[](size_t idx);</span><br><span class="line">  int* begin();</span><br><span class="line">  int* end();</span><br><span class="line"></span><br><span class="line">private:</span><br><span class="line">  void reallocate();</span><br><span class="line">  </span><br><span class="line">  size_t n;</span><br><span class="line">  //arr實際大小</span><br><span class="line">  size_t m;</span><br><span class="line">  int *arr;</span><br><span class="line">&#125;;</span><br><span class="line">//建構子</span><br><span class="line">MyVector::MyVector(size_t n, int data) &#123;</span><br><span class="line">    this-&gt;n = n;</span><br><span class="line">    this-&gt;m = max(n, size_t(1));</span><br><span class="line">    this-&gt;arr = new int[this-&gt;m]&#123;&#125;;</span><br><span class="line">    for (int i = 0; i &lt; n; ++i)</span><br><span class="line">      this-&gt;arr[i] = data;</span><br><span class="line">&#125;</span><br><span class="line">//複製</span><br><span class="line">MyVector::MyVector(const MyVector&amp; other) &#123;</span><br><span class="line">    this-&gt;n = other.n;</span><br><span class="line">    this-&gt;m = other.m;</span><br><span class="line">    this-&gt;arr = new int[this-&gt;m]&#123;&#125;;</span><br><span class="line">    for (int i = 0; i &lt; n; ++i)</span><br><span class="line">      this-&gt;arr[i] = other.arr[i];</span><br><span class="line">&#125;</span><br><span class="line">//size函數</span><br><span class="line">size_t MyVector::size() const &#123;</span><br><span class="line">    return this-&gt;n;</span><br><span class="line">&#125;</span><br><span class="line">//運算子重載[]</span><br><span class="line">int&amp; MyVector::operator[](size_t idx) &#123;</span><br><span class="line">return this-&gt;arr[idx];</span><br><span class="line">&#125;</span><br><span class="line">int* MyVector::begin() &#123;</span><br><span class="line">return this-&gt;arr;</span><br><span class="line">&#125;</span><br><span class="line">int* MyVector::end() &#123;</span><br><span class="line">return this-&gt;arr + this-&gt;n;</span><br><span class="line">&#125;</span><br><span class="line">void MyVector::reallocate() &#123;</span><br><span class="line">    const size_t growth_factor = 2;</span><br><span class="line">    this-&gt;m *= growth_factor;</span><br><span class="line">    int *new_arr = new int[this-&gt;m]&#123;&#125;;</span><br><span class="line">    for(int i = 0; i &lt; this-&gt;n; ++i)</span><br><span class="line">    new_arr[i] = this-&gt;arr[i];</span><br><span class="line">    delete this-&gt;arr;</span><br><span class="line">    this-&gt;arr = new_arr;</span><br><span class="line">&#125;</span><br><span class="line">//push_back函數</span><br><span class="line">void MyVector::push_back(int data) &#123;</span><br><span class="line">    if (this-&gt;n == this-&gt;m)</span><br><span class="line">      this-&gt;reallocate();</span><br><span class="line">    this-&gt;arr[n] = data;</span><br><span class="line">    n += 1;</span><br><span class="line">&#125;</span><br><span class="line">void MyVector::pop_back()&#123;</span><br><span class="line">  --n;</span><br><span class="line">&#125;</span><br><span class="line">int main() &#123;</span><br><span class="line">    MyVector A(5, 7);</span><br><span class="line">    MyVector B = A, C;</span><br><span class="line">    C = B;</span><br><span class="line">    C.push_back(3);</span><br><span class="line">    sort(C.begin(), C.end());</span><br><span class="line">    for (int i = 0; i &lt; C.size(); ++i)</span><br><span class="line">    cout &lt;&lt; C[i] &lt;&lt; &#x27; &#x27;;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yihsunphys.github.io/2023/08/29/23-09-w1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/3.jpg">
-      <meta itemprop="name" content="Yihsun">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="消極女子的部落格">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/08/29/23-09-w1/" class="post-title-link" itemprop="url">2023-09-week1</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2023-08-29 01:42:37 / Modified: 01:46:56" itemprop="dateCreated datePublished" datetime="2023-08-29T01:42:37+08:00">2023-08-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%97%A5%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">日記</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>08&#x2F;28: 我期末考考的不太好ㄟ 可能之前確定A+後就都不讀了 但還是不太妙 以後要上課才行 我覺得觸控筆怪怪的 有點怕</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yihsunphys.github.io/2023/08/23/23-08-w4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/3.jpg">
-      <meta itemprop="name" content="Yihsun">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="消極女子的部落格">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/08/23/23-08-w4/" class="post-title-link" itemprop="url">2023-08-week4</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-08-23 19:38:05" itemprop="dateCreated datePublished" datetime="2023-08-23T19:38:05+08:00">2023-08-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-08-29 01:40:23" itemprop="dateModified" datetime="2023-08-29T01:40:23+08:00">2023-08-29</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%97%A5%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">日記</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>08&#x2F;21: 在家就甚麼都不會做 我訂了電腦! 是hp pavilion x36 觸控翻轉筆電$22888 ，終於可以體驗用平板寫筆記的感覺了嗎! 這台是經過我精挑細選而來，記憶體有16G以應付之後可能會用auto cad 畫3d的圖，cpu是i5-1235，可以快速充電，相信足以應付我的日常所需，他比我現在這台效能好兩倍吧，希望我會覺得他太好用了</p>
-<p>08&#x2F;22:電腦沒來XD</p>
-<p>08&#x2F;23: 去拔了智齒ㄟ，不過先拔一顆容易處理的，之後的水平智齒可能等寒假要去專門診所拔，但是要切肉我覺得好可怕&gt; &lt;</p>
-<p>08&#x2F;24: 我真的覺得我的新電腦超級好玩，我用舊電腦時都不自覺去點螢幕哈哈笑死</p>
-<p>08&#x2F;25: 嘴巴破皮真的生不如死</p>
-<p>08&#x2F;26: 去夜市買超多東西吃 在新竹一直想這樣做 終於 還有我成功把部落格搬家到我的新電腦了耶 原本以為會很麻煩的說 真是太好了 這幾天讀了好多東西 </p>
-<p>08&#x2F;27: 寫筆記真是件好玩的事 我在火車上做專題的模擬 結果甚麼鳥都沒做出來 還弄得頭很暈</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yihsunphys.github.io/2023/08/15/23-08-w3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/3.jpg">
-      <meta itemprop="name" content="Yihsun">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="消極女子的部落格">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/08/15/23-08-w3/" class="post-title-link" itemprop="url">2023-08-week3</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-08-15 20:57:02" itemprop="dateCreated datePublished" datetime="2023-08-15T20:57:02+08:00">2023-08-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-08-23 19:37:24" itemprop="dateModified" datetime="2023-08-23T19:37:24+08:00">2023-08-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%97%A5%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">日記</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>08&#x2F;13: 在火車上睡相超難看，而且完全忘了學校今日停電，躲去圖書館，在網路上遇到瘋子，today is not my day. 今日感觸: 網路上的人很恐怖</p>
-<p>08&#x2F;14: 家長請喝了蘋果牛奶 是真的好喝喔  今天餓爛 在現實中遇到瘋子，在學餐買飯時，遇到可能是參加營隊的人在闖關，我被問有沒有ig，我說沒有，然後他就在我面前罵髒話了，超級不爽 : ) 我幹嘛幫你 </p>
-<p>08&#x2F;15: 久違的練了口琴，今日吹 sonate f dur .  去找了教授討論專題的事，討論的很快! 買了家教國二的參考書，不過之後應該不接了，視訊我不知道怎麼弄，而且還是先買筆電好了，暫時不買平板。 喝了50嵐，好喝阿… </p>
-<p>08&#x2F;16: 看了一部漫畫，校舍後方埋藏著天使，本來看了第一集覺得還不錯，期待後來的發展，結果結局好爛，情節也沒什麼爆點，而且偏扯。同類型的漫畫比較推薦三角草的春天，小說的話有一本叫復仇教室的，被欺負的環節我記得更慘，但都很扯就是了。不過我可能以前讀太多重口味的作品，現在看什麼都覺得給小孩子看的，嚇不到我了XD</p>
-<p>08&#x2F;17: 我受夠我的頭髮了，為甚麼我的頭髮那麼多? 每次起床頭髮都呈現一個很奇怪的角度，有些髮絲還反重力似的往上飄，超奇怪。 看一看以前的照片又覺得短髮好像比較好看，決定下禮拜去剪掉好了，順便再燙，但我還在思考要剪到多短。 還有要拔智齒! 我整個臉因為智齒都不對稱了。  由於整天都在看不正常的漫畫，雖然是很好看啦，但整個人不太對勁了，有點害怕路上的人會突然殺掉我之類的笑死，竟然到今天才知道雨がっぱ少女群的漫畫，畫風很可愛而且故事超對我胃口&gt;&#x2F;&#x2F;&#x2F;&lt;。也看了這幾天很紅的山道猴子，我感覺很普通。  這幾天每餐都去吃交大的素食自助餐，因為很便宜，而且算健康吧哈哈</p>
-<p>08&#x2F;18: 整天都在研究要買的筆電，找出了十幾台符合需求的 (一定要:記憶體16G, CPU i5以上  $30000以內  想要:螢幕15吋以上 有數字鍵 續航力佳) 然後看一看就對觸控筆電感到很有興趣，因為這樣就可以當平板用了，不過看了一下這種二合一又有符合我需求的大概只有聯想的flex系列，蠻便宜的大概20000，是我最想要的(阿但是他好像下架了!?)。性能最好的則是lg的gram，但是要30000 : (  其他也有納入考慮的是asus的vivobook和acer的swift3，都大約$25000</p>
-<p>後來覺得二合一的螢幕都太小了! 打code眼睛會很吃力，還是買一台平板好了，筆電就買便宜的16吋，但是聽說非ipad的都很爛，ipad又很貴，還是要買acer二合一的11吋筆電，只要7000還比ipad便宜，帶出門還可以寫程式，不知道怎樣比較好QQ</p>
-<p>08&#x2F;19: 從家教那裏拿到了一杯早餐店大冰奶和仙草 又回家了 我騎車超快 在中華西路上大概時速有70幾 </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yihsunphys.github.io/2023/08/12/linkedlist2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/3.jpg">
-      <meta itemprop="name" content="Yihsun">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="消極女子的部落格">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/08/12/linkedlist2/" class="post-title-link" itemprop="url">Linked list II</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2023-08-12 02:17:06 / Modified: 02:29:00" itemprop="dateCreated datePublished" datetime="2023-08-12T02:17:06+08:00">2023-08-12</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/cs-note/" itemprop="url" rel="index"><span itemprop="name">cs note</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>此篇筆記參考中山大學楊昌彪教授資料結構第三章ppt<br>先介紹基本的單向linked list，如何刪除和插入節點，以及結合兩個list還有翻轉，接著介紹cicukar list 雙向linked list以及用linked list實作stack和queue</p>
-<h1 id="singly-linked-list-chain"><a href="#singly-linked-list-chain" class="headerlink" title="singly linked list(chain)"></a>singly linked list(chain)</h1><p>一個節點(node)代表一個element，每個節點有一個指標去連接到下一個節點，最後一個節點的指標NULL<br>以下是linked list的class宣告
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/08/12/linkedlist2/" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yihsunphys.github.io/2023/08/10/23-08-w2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/3.jpg">
-      <meta itemprop="name" content="Yihsun">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="消極女子的部落格">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/08/10/23-08-w2/" class="post-title-link" itemprop="url">2023-08-week2</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2023-08-10 20:36:51" itemprop="dateCreated datePublished" datetime="2023-08-10T20:36:51+08:00">2023-08-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-08-15 20:55:52" itemprop="dateModified" datetime="2023-08-15T20:55:52+08:00">2023-08-15</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%97%A5%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">日記</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>08&#x2F;06: 我忘了我在幹嘛，瀏海禿了</p>
-<p>08&#x2F;07: 考期中考，累到死，還好滿分破台，不過前面太緊張題目沒看清楚，浪費一堆時間。有吃家教家長請的蛋黃酥(抵午餐)</p>
-<p>08&#x2F;08: 延續昨天的累，仍然超累，去吃了火焰鳥，隔壁桌鍋裡有火焰在燒，超酷</p>
-<p>08&#x2F;09: 回家囉，牙痛頭痛眼睛痛，全身都在痛，幹。有吃家教家長切芒果，晚上用hfss</p>
-<p>08&#x2F;10: 石二鍋很好吃，好幾天沒學新的資結和演算法了qq </p>
-<p>08&#x2F;11: 好累 如果一天能睡24小時就好了，但我今天強迫自己讀完linked list了，再不讀寒假要去考資結簡直是笑話，不過進度已經比我想的要好很多了，暑假前還是一個完全不會寫程式的小白，花一個月已經學完程設+一半的資結，本來資結是資工系大二的必修，想說要很會寫程式後才能學，事實上我覺得只要熟悉基本語法就可以開始自修了，但也有可能是我學得太簡單，我前幾個禮拜有偷去寫清大暑修資結的作業，結果他們已經在教graph，我完全不會寫:(，明天可以開始學tree了。</p>
-<p>08&#x2F;12: 去吃了夏慕尼，cp值不高，不如喝貢丸湯。 我很久沒失眠了，通常都是自主通宵，上學期好像通宵兩三次? 反正都是在讀書 : )  </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yihsunphys.github.io/2023/08/06/23-08-05/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/3.jpg">
-      <meta itemprop="name" content="Yihsun">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="消極女子的部落格">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/08/06/23-08-05/" class="post-title-link" itemprop="url">2023-08-05日記</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2023-08-06 00:53:43 / Modified: 01:07:40" itemprop="dateCreated datePublished" datetime="2023-08-06T00:53:43+08:00">2023-08-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%97%A5%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">日記</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>這幾天幾乎沒吃什麼東西，但完全不會餓，不過今天吃了一個還算好吃的布丁。我覺得我每天的日記都寫很少，以後一個禮拜發一篇好了</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yihsunphys.github.io/2023/08/06/bignumber/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/3.jpg">
-      <meta itemprop="name" content="Yihsun">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="消極女子的部落格">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/08/06/bignumber/" class="post-title-link" itemprop="url">大數運算 BigNumber</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2023-08-06 00:53:31 / Modified: 01:02:04" itemprop="dateCreated datePublished" datetime="2023-08-06T00:53:31+08:00">2023-08-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/cs-note/" itemprop="url" rel="index"><span itemprop="name">cs note</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>當題目要我們做大數運算時，通常測資會給連long long都存不下的值，這時只能將數字轉成字串並模擬運算的過程，當然答案也要轉成字串存取
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/08/06/bignumber/" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/08/29/23-09-w1/" rel="prev" title="2023-09-week1">
+      <i class="fa fa-chevron-left"></i> 2023-09-week1
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
   
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yihsunphys.github.io/2023/08/06/string/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/3.jpg">
-      <meta itemprop="name" content="Yihsun">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="消極女子的部落格">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/08/06/string/" class="post-title-link" itemprop="url">String</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2023-08-06 00:53:19 / Modified: 01:03:06" itemprop="dateCreated datePublished" datetime="2023-08-06T00:53:19+08:00">2023-08-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/cs-note/" itemprop="url" rel="index"><span itemprop="name">cs note</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>c++ 中有寫好的string，只要引入標頭檔string就能使用，字串其實就是字元陣列，不過c++ 中有很多string的函數，使用上十分方便，且string能直接賦值，也能直接cout，不用像陣列一樣只能一個一個元素輸出</p>
-<p>不過這邊先整理字串陣列(非string)常用的函數:<br>有strlen(), strcpy(), strcat(), strncat()
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/08/06/string/" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yihsunphys.github.io/2023/08/06/struct/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/3.jpg">
-      <meta itemprop="name" content="Yihsun">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="消極女子的部落格">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/08/06/struct/" class="post-title-link" itemprop="url">C語言中的複合資料型態</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2023-08-06 00:53:05 / Modified: 01:04:42" itemprop="dateCreated datePublished" datetime="2023-08-06T00:53:05+08:00">2023-08-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/cs-note/" itemprop="url" rel="index"><span itemprop="name">cs note</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="struct"><a href="#struct" class="headerlink" title="struct"></a>struct</h1><p>當我們有多個不同類型的資料想要把他們綁在一起時，我們就可以使用struct這種資料型態，與c++中的class基本上是一樣的，只不過struct內不能有函數，且struct默認成員為public</p>
-<h3 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h3><p>我們想要把每個學生的姓名，班級和座號綁在一起，因此我們可以宣告一個名為student的struct
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/08/06/struct/" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
-  </nav>
 
 
 
