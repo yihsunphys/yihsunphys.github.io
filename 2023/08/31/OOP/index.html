@@ -37,7 +37,7 @@
 <meta property="og:description" content="資料和函數是物件(object)的屬性(properties)，而不是像以前在結構化程式設計 (structured programming) 中所認為的物件(object)是函數參數。 class和struct充分展現 C++ 物件導向程式設計的精神，與 C 的 struct 類似，但 struct 不能包含函數 (在 C 中，在 C++ 中可以，只是默認成員為public)。背後最核心的概念是">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-08-30T16:54:02.000Z">
-<meta property="article:modified_time" content="2023-08-30T16:54:49.000Z">
+<meta property="article:modified_time" content="2023-09-01T15:23:22.582Z">
 <meta property="article:author" content="Yihsun">
 <meta name="twitter:card" content="summary">
 
@@ -206,10 +206,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2023-08-31 00:54:02 / Modified: 00:54:49" itemprop="dateCreated datePublished" datetime="2023-08-31T00:54:02+08:00">2023-08-31</time>
+              <time title="Created: 2023-08-31 00:54:02" itemprop="dateCreated datePublished" datetime="2023-08-31T00:54:02+08:00">2023-08-31</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-09-01 23:23:22" itemprop="dateModified" datetime="2023-09-01T23:23:22+08:00">2023-09-01</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -240,7 +246,7 @@
       
         <p>資料和函數是物件(object)的屬性(properties)，而不是像以前在結構化程式設計 (structured programming) 中所認為的物件(object)是函數參數。</p>
 <p>class和struct充分展現 C++ 物件導向程式設計的精神，與 C 的 struct 類似，但 struct 不能包含函數 (在 C 中，在 C++ 中可以，只是默認成員為public)。<br>背後最核心的概念是資料封裝</p>
-<p>class內可以有member function 和 data member，其中member function的定義可以直接寫在class內(inline)或只先定義原型，在class外再完整定義他，但要注意加上範圍運算子::</p>
+<p>class內可以有member function 和 data member，其中member function的定義可以直接寫在class內(inline)或只先定義原型，在class外再完整定義他，但要注意加上範圍運算子::<span id="more"></span></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">#define RECTANGLE_H</span><br><span class="line">//class宣告在int main()外 或另寫.h檔</span><br><span class="line">class Rectangle &#123; </span><br><span class="line">        public:</span><br><span class="line">            Rectangle() &#123;&#125;; //定義空運算子 以便宣告Rectangle temp</span><br><span class="line">            Rectangle(int, int, int, int);  //建構子一定在public</span><br><span class="line">            //~Rectangle();</span><br><span class="line">            int getweight();</span><br><span class="line">            Rectangle operator+(Rectangle); //運算子重載函數</span><br><span class="line">            int address();</span><br><span class="line">        private:</span><br><span class="line">            int xLow, yLow, height, weight; //遍數通常放private</span><br><span class="line">&#125;;  //注意要有分號</span><br><span class="line"></span><br><span class="line">//函數的定義也可放在.cpp檔</span><br><span class="line">int Rectangle::getweight() &#123;</span><br><span class="line">    return weight;</span><br><span class="line">&#125;</span><br><span class="line">//定義建構子 </span><br><span class="line">Rectangle::Rectangle(int a, int b, int c, int d) &#123;</span><br><span class="line">    xLow = a;</span><br><span class="line">    yLow = b;</span><br><span class="line">    height = c;</span><br><span class="line">    weight = d;</span><br><span class="line">&#125;</span><br><span class="line">//運算子重載  </span><br><span class="line">Rectangle Rectangle::operator+(Rectangle r2) &#123;</span><br><span class="line">    Rectangle temp;</span><br><span class="line">    temp.xLow = xLow + r2.xLow;</span><br><span class="line">    temp.yLow = xLow + r2.yLow;</span><br><span class="line">    temp.height = height + r2.height;</span><br><span class="line">    temp.weight = xLow + r2.weight;</span><br><span class="line">    return(temp);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int Rectangle::address()&#123;</span><br><span class="line">    return int(this); //this是該物件的位址</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="權限範圍"><a href="#權限範圍" class="headerlink" title="權限範圍"></a>權限範圍</h3><ul>
 <li>public:<br>所有人都可使用此member function 或 data member</li>
@@ -285,7 +291,10 @@
     <a href="/2023/08/29/stl-container/" rel="prev" title="stl-container">
       <i class="fa fa-chevron-left"></i> stl-container
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2023/09/01/%E7%A0%94%E7%A9%B6%E6%89%80/" rel="next" title="研究所選擇">
+      研究所選擇 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -359,7 +368,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
