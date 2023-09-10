@@ -6,7 +6,7 @@
   <link href="http://yihsunphys.github.io/atom.xml" rel="self"/>
   
   <link href="http://yihsunphys.github.io/"/>
-  <updated>2023-09-01T15:23:40.801Z</updated>
+  <updated>2023-09-10T09:47:37.523Z</updated>
   <id>http://yihsunphys.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2023-09-week2</title>
+    <link href="http://yihsunphys.github.io/2023/09/10/23-09-w2/"/>
+    <id>http://yihsunphys.github.io/2023/09/10/23-09-w2/</id>
+    <published>2023-09-10T09:37:25.000Z</published>
+    <updated>2023-09-10T09:47:37.523Z</updated>
+    
+    <content type="html"><![CDATA[<p>09&#x2F;04: 我覺得人生沒有希望，我只能活在虛實交錯的幻想之中來麻痺自己<br>09&#x2F;05: 我覺得我考不上我想要的學校，我也不知道我想要甚麼<br>09&#x2F;06: 覺得自己甚麼經歷都沒有，覺得自己很爛，作惡夢<br>09&#x2F;07: 跟高中同學出去，已經變成懶得跟任何人出去玩了<br>09&#x2F;08: 沒讀書，只會擔憂未來<br>09&#x2F;09: 沒讀書<br>09&#x2F;10: 雖然說開學真的沒有甚麼事，但一回到新竹就沒來由地憂鬱了，像憂鬱症的那種感覺</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;09&amp;#x2F;04: 我覺得人生沒有希望，我只能活在虛實交錯的幻想之中來麻痺自己&lt;br&gt;09&amp;#x2F;05: 我覺得我考不上我想要的學校，我也不知道我想要甚麼&lt;br&gt;09&amp;#x2F;06: 覺得自己甚麼經歷都沒有，覺得自己很爛，作惡夢&lt;br&gt;09&amp;#x2F;07: 跟高</summary>
+      
+    
+    
+    
+    <category term="日記" scheme="http://yihsunphys.github.io/categories/%E6%97%A5%E8%A8%98/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>研究所選擇</title>
@@ -78,9 +100,9 @@
     <link href="http://yihsunphys.github.io/2023/08/29/23-09-w1/"/>
     <id>http://yihsunphys.github.io/2023/08/29/23-09-w1/</id>
     <published>2023-08-28T17:42:37.000Z</published>
-    <updated>2023-09-01T15:22:03.486Z</updated>
+    <updated>2023-09-10T09:35:59.965Z</updated>
     
-    <content type="html"><![CDATA[<p>08&#x2F;28: 我期末考考的不太好ㄟ 可能之前確定A+後就都不讀了 但還是不太妙 以後要上課才行 我覺得觸控筆怪怪的 有點怕<br>08&#x2F;29: 整天都在做專題的東西 要把autocad的設計導入hfss弄了好久 結果發現根本搞錯地方 要融進原本畫好的模型又用好久 但結果也不太好<br>       用自己不熟悉的軟體真的頭痛<br>08&#x2F;30: 把宿舍東西整理整理 目前同時在看邏設 資結 eda 的開放式課程 另外還有自己讀演算法跟建中編的競程講義 跟解一些oj上的題目 想說之後去考個cpe之類的<br>       每天還是會害怕醒來 如果不要醒來就好了<br>08&#x2F;31: 搬宿舍一趟解決，超感謝室友多幫我拉一個籃子，不然我手一定會廢<br>09&#x2F;01: 自己煎了兩顆超油的蛋來吃 超好吃ㄟ 還騎車出門 覺得其實讀書真的是一件很輕鬆的事，甚至有點幸福</p>]]></content>
+    <content type="html"><![CDATA[<p>08&#x2F;28: 我期末考考的不太好ㄟ 可能之前確定A+後就都不讀了 但還是不太妙 以後要上課才行 我覺得觸控筆怪怪的 有點怕<br>08&#x2F;29: 整天都在做專題的東西 要把autocad的設計導入hfss弄了好久 結果發現根本搞錯地方 要融進原本畫好的模型又用好久 但結果也不太好<br>       用自己不熟悉的軟體真的頭痛<br>08&#x2F;30: 把宿舍東西整理整理 目前同時在看邏設 資結 eda 的開放式課程 另外還有自己讀演算法跟建中編的競程講義 跟解一些oj上的題目 想說之後去考個cpe之類的<br>       每天還是會害怕醒來 如果不要醒來就好了<br>08&#x2F;31: 搬宿舍一趟解決，超感謝室友多幫我拉一個籃子，不然我手一定會廢<br>09&#x2F;01: 自己煎了兩顆超油的蛋來吃 超好吃ㄟ 還騎車出門 覺得其實讀書真的是一件很輕鬆的事，甚至有點幸福<br>09&#x2F;02:  一直讀邏設<br>09&#x2F;03:  讀邏設，焦慮</p>]]></content>
     
     
       
@@ -403,29 +425,6 @@
     
     
     <category term="cs note" scheme="http://yihsunphys.github.io/categories/cs-note/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>2023-08-02日記</title>
-    <link href="http://yihsunphys.github.io/2023/08/03/2023-08-02%E6%97%A5%E8%A8%98/"/>
-    <id>http://yihsunphys.github.io/2023/08/03/2023-08-02%E6%97%A5%E8%A8%98/</id>
-    <published>2023-08-02T16:09:03.000Z</published>
-    <updated>2023-08-02T16:14:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天寫了兩篇筆記，感覺很充實呢，已經戒糖第七天了~ 明天就可以允許自己吃甜甜的東西，好期待呀</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;今天寫了兩篇筆記，感覺很充實呢，已經戒糖第七天了~ 明天就可以允許自己吃甜甜的東西，好期待呀&lt;/p&gt;
-</summary>
-      
-    
-    
-    
-    <category term="日記" scheme="http://yihsunphys.github.io/categories/%E6%97%A5%E8%A8%98/"/>
     
     
   </entry>
